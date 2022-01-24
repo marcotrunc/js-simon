@@ -31,23 +31,35 @@ console.log(randomNumbers);
 alert(randomNumbers);
 
 
-//  ** 4 Creo una Timing function che mi consentirà di far passare 30 secondi
+//  ** 3 Creo una Timing function che mi consentirà di far passare 30 secondi
 
 const timeOut = setTimeout(() => {
 
-    // ** 3 Dichiaro un array vuoto che andrò a riempire se l'utente avrà indovinato il numero
+    // ** 4 Dichiaro un array vuoto che andrò a riempire se l'utente avrà indovinato il numero
     const matchedNumbers = [];
+
+    const userNumbers = [];
 
     for (let i = 0; i < 5; i++) {
         const request = parseInt(prompt('Inserisci il numero').trim());
-        if (randomNumbers.includes(request)) {
-            matchedNumbers.push(request);
+
+        // ? Verifica dei se due numeri sono stati scelti due volte
+        if (userNumbers.includes(request)) {
+            alert('Hai inserito due numeri uguali');
+            return
         }
+
+        // ? Se il numero scelto risulta incluso nell' randomNumber inseriscilo nel matchedNumbers
+        if (randomNumbers.includes(request)) matchedNumbers.push(request);
+
+
+        // ? inserisci il numero nell'userNumber per una successiva verifica
+        userNumbers.push(request);
     }
-    console.log(matchedNumbers);
+    console.log(matchedNumbers, userNumbers);
     // ** 5 Faccio vedere i  numeri che ho indivinato
 
     alert(`Hai indovinato i seguenti numeri ${matchedNumbers}`);
-}, 10000);
+}, 3000);
 
 
