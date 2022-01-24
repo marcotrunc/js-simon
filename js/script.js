@@ -49,7 +49,7 @@ const timeOut = setTimeout(() => {
             return
         }
 
-        // ? Se il numero scelto risulta incluso nell' randomNumber inseriscilo nel matchedNumbers
+        // ? Se il numero scelto risulta incluso nel randomNumber inseriscilo nel matchedNumbers
         if (randomNumbers.includes(request)) matchedNumbers.push(request);
 
 
